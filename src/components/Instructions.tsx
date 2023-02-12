@@ -1,8 +1,13 @@
-function handleCloseButton() {
-  document.body.classList.remove("show-instructions");
+
+
+type InstructionsProps = {
+    setShow:Function;
 }
 
-export function Instructions() {
+export function Instructions({setShow}:InstructionsProps) {
+    function handleCloseButton() {
+        setShow(false);
+      }
   return (
     <div id="instructions" className="instructions">
       <div className="instructions-header">Game Instructions</div>

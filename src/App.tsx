@@ -1,10 +1,13 @@
+import { useState } from "react";
 import "./App.css";
 import { Header } from "./components/Header";
 import { Instructions } from "./components/Instructions";
 
 function App() {
+  const [show, setShow] = useState(false)
+
   function handleInstructionsButton() {
-    document.body.classList.add("show-instructions");
+   setShow(true)
   }
 
   return (
@@ -37,8 +40,8 @@ function App() {
         </main>
         <footer>🎀 &copy; 2023 Lorena de la Luz Mondini 🎀</footer>
       </div>
-      <div className="mask"></div>
-      <Instructions />
+      {show && <div className="mask"></div>}
+      {show && <Instructions setShow={setShow} />}
     </>
   );
 }
